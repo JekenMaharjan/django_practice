@@ -54,12 +54,17 @@ Follow these steps to create a Django project from scratch:
     python manage.py startapp firstapp
     ```
 
-10. Apply Migrations
+10. Create Migrations
+    ```bash
+    python manage.py makemigrations
+    ```
+
+11. Apply Migrations
     ```bash
     python manage.py migrate
     ```
 
-11. Run Development Server
+12. Run Development Server
     ```bash
     python manage.py runserver
     ```
