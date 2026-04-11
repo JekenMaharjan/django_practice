@@ -8,10 +8,26 @@
 <body>
     <h1>Members</h1>
 
-    <ul>
+    {% comment %} Table {% endcomment %}
+    <table border="1" width="50%" >
+        {% comment %} Table Row {% endcomment %}
+        <tr>
+            {% comment %} Table Heading {% endcomment %}
+            <th>Fullname</th>
+            <th>Phone</th>
+            <th>Joined Date</th>
+        </tr>
+
+        {% comment %} Loop on mymembers list {% endcomment %}
         {% for x in mymembers %}
-            <li>{{ x.firstname }} {{ x.lastname }}</li>
+            {% comment %} Table Row {% endcomment %}
+            <tr>
+                {% comment %} Table Data {% endcomment %}
+                <td>{{ x.firstname }} {{ x.lastname }}</td>
+                <td>{{ x.phone }}</td>
+                <td>{{ x.joined_date }}</td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
 </html>
