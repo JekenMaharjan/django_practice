@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Members</title>
-</head>
-<body>
+{% extends "master.html" %}
+
+{% block title%}
+    All Members
+{% endblock %}
+
+
+{% block content %}
     <h1>Members</h1>
 
     {% comment %} Table {% endcomment %}
@@ -33,5 +33,4 @@
             </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}
