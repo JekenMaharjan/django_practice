@@ -23,7 +23,11 @@
             {% comment %} Table Row {% endcomment %}
             <tr>
                 {% comment %} Table Data {% endcomment %}
-                <td>{{ x.firstname }} {{ x.lastname }}</td>
+                <td>
+                    <a href="{% url 'details' x.id %}">
+                        {{ x.firstname }} {{ x.lastname }}
+                    </a>
+                </td>
                 <td>{{ x.phone }}</td>
                 <td>{{ x.joined_date }}</td>
             </tr>

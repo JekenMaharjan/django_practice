@@ -60,3 +60,4 @@
     - WorkFlow:  
         *User visits /members → Django checks urlpatterns → calls members view → view returns response → page shown in browser*
 
+> **Steps** : *Templates -> Views -> Urls*
