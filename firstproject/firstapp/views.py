@@ -3,8 +3,14 @@ from django.http import HttpResponse
 from django.views import View
 from django.template import loader
 from .models import Member
+from .forms import ReservationForm
 
 # Create your views here.
+
+# Main Page
+def main(request):
+    template = loader.get_template('main.html')
+    return HttpResponse(template.render())
 
 def hello_world(request):
     return HttpResponse("Hello World!")
@@ -40,7 +46,14 @@ def testing(request):
     }
     return HttpResponse(template.render(context, request))
 
-# Main Page
-def main(request):
-    template = loader.get_template('main.html')
-    return HttpResponse(template.render())
+def form(request):
+    form = ReservationForm()
+    
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Success!")
+    
+    return render(request, 'index.html', {'form' : form })
+
