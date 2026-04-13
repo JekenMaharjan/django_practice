@@ -9,13 +9,19 @@ class Reservation(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     guest_count = models.IntegerField()
-    reservation_time = models.DateField(auto_now=True)
-    comments = models.CharField(max_length=1000)
+    reservation_time = models.DateTimeField()
+    comments = models.TextField(blank=True)
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 class Member(models.Model):
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
-    phone = models.IntegerField(null=True)
+    phone = models.CharField(max_length=15, null=True, blank=True)
     joined_date = models.DateField(null=True)
+    
+    def __str__(self):
+        return f"{self.firstname} {self.lastname}"
 
 
