@@ -57,3 +57,9 @@ def form(request):
     
     return render(request, 'index.html', {'form' : form })
 
+def django_syntax(request):
+    template = loader.get_template('django_syntax.html')
+    context = {
+        'user': 'Albert Gibson',
+    }
+    return HttpResponse(template.render(context, request))
