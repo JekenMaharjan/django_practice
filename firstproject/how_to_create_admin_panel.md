@@ -97,3 +97,9 @@ To add a new member, click on the "ADD MEMBER" button in the top right corner.
 - Now the Members Model have 6 members.
 
 
+## Delete Members
+
+- To delete a new member, you can either select a member and choose the action "Delete selected members".
+- Or you can open a member for editing, and click the red DELETE button at the bottom.
+
+
