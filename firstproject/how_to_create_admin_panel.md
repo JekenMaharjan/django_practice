@@ -82,8 +82,18 @@ To change this to a more reader-friendly format, we have two choices:
 
 Now we are able to create, update, and delete members in our database, and we start by giving them all a date for when they became members.
 
-Click the first member, Stalikken, to open the record for editing, and give him a joined_date.  
-While we are in here, let us give him a phone number as well.  
-Click "SAVE" and go back to the list of all members.  
-Repeat these steps and give all members a date and a phone number, and end up with a list like this i.e. full info given.
+- Click the first member, Stalikken, to open the record for editing, and give him a joined_date.  
+- While we are in here, let us give him a phone number as well.  
+- Click "SAVE" and go back to the list of all members.  
+- Repeat these steps and give all members a date and a phone number, and end up with a list like this i.e. full info given.
+
+
+## Add Members
+
+To add a new member, click on the "ADD MEMBER" button in the top right corner.
+
+- You will get an empty form where you can fill in the members fields.
+- Fill in the fields and click "SAVE".
+- Now the Members Model have 6 members.
+
 
