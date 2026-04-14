@@ -59,7 +59,10 @@ def form(request):
 
 def django_syntax(request):
     template = loader.get_template('django_syntax.html')
+    members = ["Jeken", "Hariyan", "Ali", "Grepatya"]
     context = {
         'user': 'Albert Gibson',
+        'members': members,
     }
     return HttpResponse(template.render(context, request))
+

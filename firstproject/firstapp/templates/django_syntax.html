@@ -6,13 +6,45 @@
     <title>Django Syntax</title>
 </head>
 <body>
-    <h1>Template Variables</h1>
+    <hr>
+    <h1>Django Variables</h1>
+    <hr>
 
     <h2>Welcome! {{ user }}</h2>
 
     {% with fullname=user %}
-    <p>Hello! {{fullname}}, how are you?</p>
+        <p>Hello! {{fullname}}, how are you?</p>
     {% endwith %}
+
+    {% comment %} ========================================================= {% endcomment %}
+    
+    <hr>
+    <h1>Django Tags</h1>
+    <hr>
+
+    <p style="font-style: italic;">
+        In Django templates, you can perform programming logic like executing if statements and for loops.
+        These keywords, if and for, are called "template tags" in Django.
+        To execute template tags, we surround them in '{ % % }' brackets.
+    </p>
+
+    {% with greeting=1 %}
+        {% if greeting == 1 %}
+            <h2>Hello! {{ user }}</h2>
+        {% else %}
+            <h2>Bye! {{ user }}</h2>
+        {% endif %}
+    {% endwith %}
+
+    
+    <h3>Members</h3>
+    <ul>
+        {% for x in members %}
+            <li>{{ x }}</li>
+        {% endfor %}
+    </ul>
+    
+    {% comment %} ========================================================= {% endcomment %}
     
 </body>
 </html>
