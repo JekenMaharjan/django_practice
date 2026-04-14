@@ -365,6 +365,7 @@
     <h1>Django Comment</h1>
     <hr>
 
+
     <p>Comments allows you to have sections of code that should be ignored.</p>
     <h3>Welcome Everyone</h3>
     {% comment %}
@@ -376,11 +377,13 @@
         or as message to other people reading the code.
     </p>
 
+
     <i>Add a description to your comment.</i>
     <h3>Welcome Everyone</h3>
     {% comment "this was the original welcome message" %}
         <h1>Welcome ladies and gentlemen</h1>
     {% endcomment %}
+
 
     <h3>Smaller Comments</h3>
     <p>You can also use the {# ... #} tags when commenting out code, which can be easier for smaller comments</p>
@@ -389,6 +392,19 @@
 
     {% comment %} ========================================================= {% endcomment %}
 
-    
+    <hr>
+    <h1>Django Include</h1>
+    <hr>
+
+
+    <h3>Include</h3>
+    <p>
+        The include tag allows you to include a template inside the current template.<br>
+        This is useful when you have a block of content that is the same for many pages.
+    </p>
+
+    {% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
+    {% include 'footer.html' %} 
 </body>
 </html>
