@@ -360,6 +360,35 @@
     </ul>
 
     {% comment %} ========================================================= {% endcomment %}
+
+    <hr>
+    <h1>Django Comment</h1>
+    <hr>
+
+    <p>Comments allows you to have sections of code that should be ignored.</p>
+    <h3>Welcome Everyone</h3>
+    {% comment %}
+    <h1>Welcome ladies and gentlemen</h1>
+    {% endcomment %}
+
+    <p>
+        You can add a message to your comment, to help you remember why you wrote the comment,
+        or as message to other people reading the code.
+    </p>
+
+    <i>Add a description to your comment.</i>
+    <h3>Welcome Everyone</h3>
+    {% comment "this was the original welcome message" %}
+        <h1>Welcome ladies and gentlemen</h1>
+    {% endcomment %}
+
+    <h3>Smaller Comments</h3>
+    <p>You can also use the {# ... #} tags when commenting out code, which can be easier for smaller comments</p>
+    <i>Comment out the word Everyone:</i>
+    <h3>Welcome{# Everyone#}</h3>
+
+    {% comment %} ========================================================= {% endcomment %}
+
     
 </body>
 </html>
