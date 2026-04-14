@@ -63,6 +63,10 @@ def django_syntax(request):
     context = {
         'user': 'Albert Gibson',
         'members': members,
+        'greeting': 1,
+        'day': 'Friday',
+        'x': ['Apple', 'Banana', 'Cherry'], 
+        'y': ['Apple', 'Banana', 'Cherry'], 
     }
     return HttpResponse(template.render(context, request))
 

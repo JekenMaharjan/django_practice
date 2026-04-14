@@ -10,7 +10,7 @@
     <h1>Django Variables</h1>
     <hr>
 
-    <h2>Welcome! {{ user }}</h2>
+    <h3>Welcome! {{ user }}.</h3>
 
     {% with fullname=user %}
         <p>Hello! {{fullname}}, how are you?</p>
@@ -30,14 +30,14 @@
 
     {% with greeting=1 %}
         {% if greeting == 1 %}
-            <h2>Hello! {{ user }}</h2>
+            <p>Hello! {{ user }}. Greeting is '1'.</p>
         {% else %}
-            <h2>Bye! {{ user }}</h2>
+            <p>Bye! {{ user }}. Greeting is not '1'.</p>
         {% endif %}
     {% endwith %}
 
     
-    <h3>Members</h3>
+    <h3>All Members</h3>
     <ul>
         {% for x in members %}
             <li>{{ x }}</li>
@@ -46,5 +46,130 @@
     
     {% comment %} ========================================================= {% endcomment %}
     
+    <hr>
+    <h1>Django If Else</h1>
+    <hr>
+
+    <h3>If Statement</h3>
+    {% if greeting == 1 %}
+        <p>Hello! {{ user }}. Greeting is '1'.</p>
+    {% endif %}
+
+    <h3>Elif</h3>
+    {% if greeting == 1 %}
+        <p>Welcome! {{ user }}. Greeting is '1'.</p>
+    {% elif greeting == 2 %}
+        <p>Hello! {{ user }}. Greeting is '2'.</p>
+    {% endif %} 
+
+    <h3>Else</h3>
+    {% if greeting == 1 %}
+        <p>Goodbye! {{ user }}. Greeting is '1'.</p>
+    {% elif greeting == 2 %}
+        <p>Hello! {{ user }}. Greeting is '2'.</p>
+    {% else %}
+        <p>Welcome! {{ user }}</p>
+    {% endif %}
+
+    <p><strong>Operators : </strong>
+        The above examples uses the == operator, 
+        which is used to check if a variable is equal to a value, 
+        but there are many other operators you can use, 
+        or you can even drop the operator if you just want to check if a variable is not empty.
+    </p>
+
+    {% if greeting %}
+        <p>Hello! {{ user }}. If greeting...</p>
+    {% endif %} 
+
+    <h3>== : Is equal to</h3>
+    {% if greeting == 1 %}
+        <p>Hello! {{ user }}. Greeting is '1'.</p>
+    {% endif %} 
+
+    <h3>!= : Is not equal to</h3>
+    {% if greeting != 2 %}
+        <p>Hello! {{ user }}. Greeting is not equal to '2'.</p>
+    {% endif %}
+
+    <h3>< : Is less than</h2>
+    {% if greeting < 3 %}
+        <p>Hello! {{ user }}. Greeting is less than '3'.</p>
+    {% endif %}
+
+    <h3><= : Is less than, or equal to</h2>
+    {% if greeting <= 3 %}
+        <p>Hello! {{ user }}. Greeting is less than or equal to '3'.</p>
+    {% endif %} 
+    
+    <h3>> : Is greater than</h3>
+    {% if greeting > 0 %}
+        <p>Hello! {{ user }}. Greeting is greater than '0'.</p>
+    {% endif %}
+
+    <h3>>= : Is greater than, or equal to</h3>
+    {% if greeting >= 1 %}
+        <p>Hello! {{ user }}. Greeting is greater than or equal to '1'.</p>
+    {% endif %}
+
+    <h3>and : To check if more than one condition is true</h3>
+    {% if greeting == 1 and day == "Friday" %}
+        <p>Hello Weekend! Greeting is '1' and day is 'Friday'.</p>
+    {% endif %}
+
+    <h3>or : To check if one of the conditions is true</h3>
+    {% if greeting == 1 or greeting == 5 %}
+        <p>Greeting is either 1 or 5.</p>
+    {% endif %}
+
+    <h3>and/or : Combine and and or</h3>
+    {% comment %} {% if greeting == 1 and day == "Friday" or greeting == 5 %} {% endcomment %}
+
+    <h3>in : To check if a certain item is present in an object</h3>
+    {% if 'Banana' in fruits %}
+        <p>Hello! If banana is in fruits.</p>
+    {% else %}
+        <p>Goodbye! If banana is not in fruits.</p>
+    {% endif %} 
+
+    <h3>not in : To check if a certain item is not present in an object</h3>
+    {% if 'Banana' not in fruits %}
+        <p>Hello! If banana is not in fruits.</p>
+    {% else %}
+        <p>Goodbye! If banana is in fruits.</p>
+    {% endif %}
+
+    <h3>is : Check if two objects are the same</h3>
+    <p style="font-style: italic;">
+        This operator is different from the == operator, 
+        because the == operator checks the values of two objects, 
+        but the is operator checks the identity of two objects.
+    </p>
+    {% if x is y %}
+        <p>YES, If 'x' is 'y'.</p>
+    {% else %}
+        <p>NO, If 'x' is not 'y'.</p>
+    {% endif %}
+
+    {% if x == y %}
+        <p>YES, If 'x == y'.</p>
+    {% else %}
+        <p>NO, If 'x != y'.</p>
+    {% endif %}
+
+    {% with var1=x var2=x %}
+    {% if var1 is var2 %}
+        <p>YES, If 'var1' is 'var2'.</p>
+    {% else %}
+        <p>NO, If 'var1' is not 'var2'.</p>
+    {% endif %}
+    {% endwith %}
+
+    <h3>is not : To check if two objects are not the same</h3>
+    {% if x is not y %}
+        <p>YES, If 'x' is not 'y'.</p>
+    {% else %}
+        <p>NO, If 'x' is 'y'.</p>
+    {% endif %} 
 </body>
 </html>
