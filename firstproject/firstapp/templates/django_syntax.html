@@ -10,6 +10,7 @@
     <h1>Django Variables</h1>
     <hr>
 
+
     <h3>Welcome! {{ user }}.</h3>
 
     {% with fullname=user %}
@@ -21,6 +22,7 @@
     <hr>
     <h1>Django Tags</h1>
     <hr>
+
 
     <p style="font-style: italic;">
         In Django templates, you can perform programming logic like executing if statements and for loops.
@@ -36,7 +38,7 @@
         {% endif %}
     {% endwith %}
 
-    
+
     <h3>All Members</h3>
     <ul>
         {% for x in members %}
@@ -50,10 +52,12 @@
     <h1>Django If Else</h1>
     <hr>
 
+
     <h3>If Statement</h3>
     {% if greeting == 1 %}
         <p>Hello! {{ user }}. Greeting is '1'.</p>
     {% endif %}
+
 
     <h3>Elif</h3>
     {% if greeting == 1 %}
@@ -61,6 +65,7 @@
     {% elif greeting == 2 %}
         <p>Hello! {{ user }}. Greeting is '2'.</p>
     {% endif %} 
+
 
     <h3>Else</h3>
     {% if greeting == 1 %}
@@ -82,48 +87,58 @@
         <p>Hello! {{ user }}. If greeting...</p>
     {% endif %} 
 
+
     <h3>== : Is equal to</h3>
     {% if greeting == 1 %}
         <p>Hello! {{ user }}. Greeting is '1'.</p>
     {% endif %} 
+
 
     <h3>!= : Is not equal to</h3>
     {% if greeting != 2 %}
         <p>Hello! {{ user }}. Greeting is not equal to '2'.</p>
     {% endif %}
 
+
     <h3>< : Is less than</h2>
     {% if greeting < 3 %}
         <p>Hello! {{ user }}. Greeting is less than '3'.</p>
     {% endif %}
 
+
     <h3><= : Is less than, or equal to</h2>
     {% if greeting <= 3 %}
         <p>Hello! {{ user }}. Greeting is less than or equal to '3'.</p>
     {% endif %} 
-    
+
+
     <h3>> : Is greater than</h3>
     {% if greeting > 0 %}
         <p>Hello! {{ user }}. Greeting is greater than '0'.</p>
     {% endif %}
+
 
     <h3>>= : Is greater than, or equal to</h3>
     {% if greeting >= 1 %}
         <p>Hello! {{ user }}. Greeting is greater than or equal to '1'.</p>
     {% endif %}
 
+
     <h3>and : To check if more than one condition is true</h3>
     {% if greeting == 1 and day == "Friday" %}
         <p>Hello Weekend! Greeting is '1' and day is 'Friday'.</p>
     {% endif %}
+
 
     <h3>or : To check if one of the conditions is true</h3>
     {% if greeting == 1 or greeting == 5 %}
         <p>Greeting is either 1 or 5.</p>
     {% endif %}
 
+
     <h3>and/or : Combine and and or</h3>
     {% comment %} {% if greeting == 1 and day == "Friday" or greeting == 5 %} {% endcomment %}
+
 
     <h3>in : To check if a certain item is present in an object</h3>
     {% if 'Banana' in fruits %}
@@ -132,12 +147,14 @@
         <p>Goodbye! If banana is not in fruits.</p>
     {% endif %} 
 
+
     <h3>not in : To check if a certain item is not present in an object</h3>
     {% if 'Banana' not in fruits %}
         <p>Hello! If banana is not in fruits.</p>
     {% else %}
         <p>Goodbye! If banana is in fruits.</p>
     {% endif %}
+
 
     <h3>is : Check if two objects are the same</h3>
     <p style="font-style: italic;">
@@ -165,11 +182,184 @@
     {% endif %}
     {% endwith %}
 
+
     <h3>is not : To check if two objects are not the same</h3>
     {% if x is not y %}
         <p>YES, If 'x' is not 'y'.</p>
     {% else %}
         <p>NO, If 'x' is 'y'.</p>
-    {% endif %} 
+    {% endif %}
+
+    {% comment %} ========================================================= {% endcomment %}
+
+    <hr>
+    <h1>Django For Loop</h1>
+    <hr>
+
+    <p style="font-style: italic;">
+        A 'for' loop is used for iterating over a sequence, like looping over items in an array, a list, or a dictionary.
+    </p>
+
+
+    <h3>Fruits in the List are:</h3>
+    <ul>
+        {% for fruit in fruits %}
+            <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Loop through a list of dictionaries:</h3>
+    <table border = "1" width = "50%">
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+        </tr>
+
+        {% for car in cars %}
+            <tr>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.year }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+    <h3>Data From a Model</h3>
+    <table border = "1" width = "50%">
+        <tr>
+            <th>id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>phone</th>
+            <th>joined_date</th>
+        </tr>
+
+        {% for member in mymembers %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member.firstname }}</td>
+            <td>{{ member.lastname }}</td>
+            <td>{{ member.phone }}</td>
+            <td>{{ member.joined_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <h3>Reversed</h3>
+    <p>The reversed keyword is used when you want to do the loop in reversed order.</p>
+    <table border = "1" width = "50%">
+        <tr>
+            <th>id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>phone</th>
+            <th>joined_date</th>
+        </tr>
+
+        {% for member in mymembers reversed %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member.firstname }}</td>
+            <td>{{ member.lastname }}</td>
+            <td>{{ member.phone }}</td>
+            <td>{{ member.joined_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <h3>Empty</h3>
+    <p>
+        The empty keyword can be used if you want to do something special if the object is empty.
+        The empty keyword can also be used if the object does not exist.
+    </p>
+
+    <h4>Members in emptytestobject</h4>
+    <ul>
+    {% for x in emptytestobject %}
+        <li>{{ x.firstname }}</li>
+    {% empty %}
+        <li>No members</li>
+    {% endfor %}
+    </ul>
+
+    <h4>Members in myobject</h4>
+    <ul>
+    {% for x in myobject %}
+        <li>{{ x.firstname }}</li>
+    {% empty %}
+        <li>No members</li>
+    {% endfor %}
+    </ul>
+
+
+    <h3>Loop Variables</h3>
+
+    <h4>1. forloop.counter</h4>
+    <i>The current iteration, starting at 1.</i>
+    <p>Count of fruit in fruits list</p>
+    <ul>
+    {% for x in fruits %}
+        <li>{{ forloop.counter }}</li>
+    {% endfor %}
+    </ul>
+
+    <h4>2. forloop.counter0</h4>
+    <i>The current iteration, starting at 0.</i>
+    <p>Count of fruit in fruits list</p>
+    <ul>
+    {% for x in fruits %}
+        <li>{{ forloop.counter0 }}</li>
+    {% endfor %}
+    </ul>
+
+    <h4>3. forloop.first</h4>
+    <i>Allows you to test if the loop is on its first iteration.</i>
+    <p>Example: Draw a blue background for the first iteration of the loop.</p>
+    <ul>
+    {% for x in fruits %}
+        <li
+        {% if forloop.first %}
+            style='background-color:lightblue;'
+        {% endif %}
+        >{{ x }}</li>
+    {% endfor %}
+    </ul>
+
+    <h4>4. forloop.last</h4>
+    <i>Allows you to test if the loop is on its last iteration.</i>
+    <p>Example: Draw a blue background for the last iteration of the loop.</p>
+    <ul>
+    {% for x in fruits %}
+        <li
+        {% if forloop.last %}
+            style='background-color:lightblue;'
+        {% endif %}
+        >{{ x }}</li>
+    {% endfor %}
+    </ul>
+
+    <h4>5. forloop.revcounter</h4>
+    <i>The current iteration if you start at the end and count backwards, ending up at 1.</i>
+    <ul>
+    {% for x in fruits %}
+        <li>{{ forloop.revcounter }}</li>
+    {% endfor %}
+    </ul>
+
+    <h4>6. forloop.revcounter0</h4>
+    <i>The current iteration if you start at the end and count backwards, ending up at 0.</i>
+    <ul>
+    {% for x in fruits %}
+        <li>{{ forloop.revcounter0 }}</li>
+    {% endfor %}
+    </ul>
+
+    {% comment %} ========================================================= {% endcomment %}
+    
 </body>
 </html>

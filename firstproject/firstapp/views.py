@@ -60,13 +60,28 @@ def form(request):
 def django_syntax(request):
     template = loader.get_template('django_syntax.html')
     members = ["Jeken", "Hariyan", "Ali", "Grepatya"]
+    mymembers = Member.objects.all().values()
     context = {
         'user': 'Albert Gibson',
         'members': members,
         'greeting': 1,
         'day': 'Friday',
+        'fruits': ['Apple', 'Banana', 'Cherry'],
         'x': ['Apple', 'Banana', 'Cherry'], 
-        'y': ['Apple', 'Banana', 'Cherry'], 
+        'y': ['Apple', 'Banana', 'Cherry'],
+        'cars': [
+            {
+                'brand': 'Toyota',
+                'model': 'HT6Y2',
+                'year': 2022
+            },
+            {
+                'brand': 'Honda',
+                'model': 'Civic',
+                'year': 2021
+            }
+        ],
+        'mymembers': mymembers,
     }
     return HttpResponse(template.render(context, request))
 
